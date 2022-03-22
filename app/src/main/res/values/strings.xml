@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Trader Me</string>
+    <string name="login_login_activity">Entrar</string>
+    <string name="newAccount_login_activity">Sou novo aqui</string>
+    <string name="usu_rio">Usuário</string>
+    <string name="e_mail">E-mail</string>
+    <string name="usu_rio">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="nome_completo">Nome Completo</string>
+    <string name="nome">Nome</string>
 </resources>

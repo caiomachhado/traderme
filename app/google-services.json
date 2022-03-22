@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "139332105906",
+    "project_id": "traderme-1725f",
+    "storage_bucket": "traderme-1725f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139332105906:android:e531adb3195af9207c3bab",
+        "android_client_info": {
+          "package_name": "com.example.traderme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139332105906-84i3cut7a2u0s7de9ukr809mkchoicet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt3NbbiT3D5hWk6XXm1vOgtvj5sLMCOwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139332105906-84i3cut7a2u0s7de9ukr809mkchoicet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
