@@ -16,8 +16,8 @@ import org.w3c.dom.Text
 
 class LoginActivity : AppCompatActivity() {
 
-    private var edit_text_email: String? = null
-    private var edit_text_password: String? = null
+    private var edit_text_email: EditText? = null
+    private var edit_text_password: EditText? = null
     private var btn_sendLogin: Button? = null
 
     private var TAG = "LoginActivity"
@@ -39,8 +39,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initialise(){
 
-        edit_text_email = findViewById<EditText>(R.id.edit_text_loginEmail).text.toString()
-        edit_text_password = findViewById<EditText>(R.id.edit_text_loginPassword).text.toString()
+        edit_text_email = findViewById<EditText>(R.id.edit_text_loginEmail)
+        edit_text_password = findViewById<EditText>(R.id.edit_text_loginPassword)
         btn_sendLogin = findViewById(R.id.btn_loginSend)
 
         mDatabase = FirebaseDatabase.getInstance()
@@ -52,8 +52,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        email = edit_text_email
-        password = edit_text_password
+        email = edit_text_email?.text.toString()
+        password = edit_text_password?.text.toString()
 
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             Toast.makeText(this@LoginActivity, "Verificando informações...", Toast.LENGTH_SHORT)
