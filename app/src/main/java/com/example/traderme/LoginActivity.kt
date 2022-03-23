@@ -92,10 +92,16 @@ class LoginActivity : AppCompatActivity() {
             Log.d(TAG, "Encontrado ${it.value}")
             val isOrNot = it.value
 
-            if (isOrNot?.equals("Client") == true){
-                val intent = Intent(this@LoginActivity,)
+            if (isOrNot?.equals("Student") == true){
+                val intent = Intent(this@LoginActivity, StudentActivity::class.java)
+                startActivity(intent)
+            } else {
+                val intent = Intent(this@LoginActivity, TeacherActivity::class.java)
+                startActivity(intent)
             }
 
+        } .addOnFailureListener {
+            Log.e("firebase", "Error getting data", it)
         }
 
     }

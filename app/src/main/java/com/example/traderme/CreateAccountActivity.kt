@@ -48,7 +48,7 @@ class CreateAccountActivity : AppCompatActivity() {
         btn_sendFormCreateAcc = findViewById(R.id.btn_sendFormCreateAcc)
 
         mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReference = mDatabase?.reference?.child("Client")
+        mDatabaseReference = mDatabase?.reference?.child("User")
         mAuth = FirebaseAuth.getInstance()
 
         btn_sendFormCreateAcc?.setOnClickListener { createNewAccount() }
@@ -84,7 +84,7 @@ class CreateAccountActivity : AppCompatActivity() {
                     currentUserDb?.child("email")?.setValue(email)
                     currentUserDb?.child("usuario")?.setValue(user)
                     currentUserDb?.child("password")?.setValue(password)
-                    currentUserDb?.child("levelAccount")?.setValue("Client")
+                    currentUserDb?.child("levelAccount")?.setValue("Student")
 
                     updateUserInfoandUi()
 
