@@ -39,8 +39,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initialise(){
 
-        edit_text_email = findViewById<EditText>(R.id.edit_text_loginEmail).toString()
-        edit_text_email = findViewById<EditText>(R.id.edit_text_loginPassword).toString()
+        edit_text_email = findViewById<EditText>(R.id.edit_text_loginEmail).text.toString()
+        edit_text_password = findViewById<EditText>(R.id.edit_text_loginPassword).text.toString()
         btn_sendLogin = findViewById(R.id.btn_loginSend)
 
         mDatabase = FirebaseDatabase.getInstance()
@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
                 }
 
              } else {
-                 Toast.makeText(this@LoginActivity, "Entre com mais detalhes", Toast.LENGTH_SHORT).show()
+                 Toast.makeText(this@LoginActivity, "Email: $email", Toast.LENGTH_SHORT).show()
         }
     }
 
