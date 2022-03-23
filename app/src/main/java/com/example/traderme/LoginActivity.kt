@@ -7,12 +7,10 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import org.w3c.dom.Text
 
 class LoginActivity : AppCompatActivity() {
 
@@ -44,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         btn_sendLogin = findViewById(R.id.btn_loginSend)
 
         mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReference = mDatabase?.reference?.child("Client")
+        mDatabaseReference = mDatabase?.reference?.child("User")
         mAuth = FirebaseAuth.getInstance()
 
         btn_sendLogin?.setOnClickListener { loginUser() }

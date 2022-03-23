@@ -42,7 +42,7 @@ class CreateAccountActivity : AppCompatActivity() {
     private fun initialise(){
 
         edit_text_name = findViewById(R.id.edit_text_name)
-        edit_text_email = findViewById(R.id.edit_text_loginEmail)
+        edit_text_email = findViewById(R.id.edit_text_email)
         edit_text_user = findViewById(R.id.edit_text_user)
         edit_text_password = findViewById(R.id.edit_text_password)
         btn_sendFormCreateAcc = findViewById(R.id.btn_sendFormCreateAcc)
@@ -62,7 +62,7 @@ class CreateAccountActivity : AppCompatActivity() {
         user = edit_text_user?.text.toString()
         password = edit_text_password?.text.toString()
 
-        if (!TextUtils.isEmpty(user) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(user) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Informações preenchidas corretamente", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, "Entre com mais detalhes", Toast.LENGTH_SHORT).show()
@@ -79,7 +79,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
                     verifyEmail()
 
-                    val currentUserDb = userId?.let {it1 -> mDatabaseReference!!.child(it1)}
+                    val currentUserDb = userId?.let { it -> mDatabaseReference!!.child(it) }
                     currentUserDb?.child("name")?.setValue(name)
                     currentUserDb?.child("email")?.setValue(email)
                     currentUserDb?.child("usuario")?.setValue(user)
