@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 
 class CreateAccountActivity : AppCompatActivity() {
 
@@ -43,7 +42,7 @@ class CreateAccountActivity : AppCompatActivity() {
     private fun initialise(){
 
         edit_text_name = findViewById(R.id.edit_text_name)
-        edit_text_email = findViewById(R.id.edit_text_email)
+        edit_text_email = findViewById(R.id.edit_text_loginEmail)
         edit_text_user = findViewById(R.id.edit_text_user)
         edit_text_password = findViewById(R.id.edit_text_password)
         btn_sendFormCreateAcc = findViewById(R.id.btn_sendFormCreateAcc)
