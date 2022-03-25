@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">Trader Me</string>
     <string name="login_activity">Entrar</string>
-    <string name="newAccount_login_activity">Sou novo aqui</string>
+    <string name="newAccount_login_activity">Sou um novo investidor aqui</string>
+    <string name="newAccount_teacher_login">Quero ser educador!</string>
     <string name="user">Usuário</string>
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
     <string name="nome_completo">Nome Completo</string>
     <string name="nome">Nome</string>
     <string name="criar_conta">Criar Conta</string>
+    <string name="decide_account_level">Eu Sou:</string>
+    <string name="studentAccount">Estudante ou Investidor</string>
+    <string name="teacherAccount">Professor ou Educador</string>
+    <string name="newCourse_add">Adicionar Curso</string>
 </resources>

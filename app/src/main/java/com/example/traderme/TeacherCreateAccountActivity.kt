@@ -1,16 +1,19 @@
 package com.example.traderme
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class CreateAccountActivity : AppCompatActivity() {
+class TeacherCreateAccountActivity : AppCompatActivity() {
 
     private var edit_text_name: EditText? = null
     private var edit_text_email: EditText? = null
@@ -22,7 +25,7 @@ class CreateAccountActivity : AppCompatActivity() {
     private var mDatabase: FirebaseDatabase? = null
     private var mAuth: FirebaseAuth? = null
 
-    private val TAG = "CreateAccountActivity"
+    private val TAG = "TeacherCreateAccountActivity"
 
     private var user: String? = null
     private var name: String? = null
@@ -31,7 +34,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_account)
+        setContentView(R.layout.activity_teacher_create_account)
 
         initialise()
 
@@ -39,11 +42,11 @@ class CreateAccountActivity : AppCompatActivity() {
 
     private fun initialise(){
 
-        edit_text_name = findViewById(R.id.edit_text_name)
-        edit_text_email = findViewById(R.id.edit_text_email)
-        edit_text_user = findViewById(R.id.edit_text_user)
-        edit_text_password = findViewById(R.id.edit_text_password)
-        btn_sendFormCreateAcc = findViewById(R.id.btn_sendFormCreateAcc)
+        edit_text_name = findViewById(R.id.edit_text_teacherName)
+        edit_text_email = findViewById(R.id.edit_text_teacherEmail)
+        edit_text_user = findViewById(R.id.edit_text_teacherUser)
+        edit_text_password = findViewById(R.id.edit_text_teacherPassword)
+        btn_sendFormCreateAcc = findViewById(R.id.btn_sendFormTeacherCreateAcc)
 
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase?.reference?.child("User")
@@ -53,6 +56,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("LongLogTag")
     private fun createNewAccount(){
 
         name = edit_text_name?.text.toString()
@@ -72,7 +76,7 @@ class CreateAccountActivity : AppCompatActivity() {
             it.createUserWithEmailAndPassword(email!!, password!!).addOnCompleteListener(this) { task ->
 
                 if (task.isSuccessful){
-                    Log.d(TAG, "Usuário Criado")
+                    Log.d(TAG, "UsuárioCriado")
 
                     val userId = it.currentUser?.uid
 
@@ -83,14 +87,14 @@ class CreateAccountActivity : AppCompatActivity() {
                     currentUserDb?.child("email")?.setValue(email)
                     currentUserDb?.child("usuario")?.setValue(user)
                     currentUserDb?.child("password")?.setValue(password)
-                    currentUserDb?.child("levelAccount")?.setValue("Student")
+                    currentUserDb?.child("levelAccount")?.setValue("Teacher")
 
                     updateUserInfoandUi()
 
                 } else {
 
                     Log.w(TAG, "Não possível realizar o cadastro.", task.exception)
-                    Toast.makeText(this@CreateAccountActivity, "Falha na autenticação", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@TeacherCreateAccountActivity, "Falha na autenticação", Toast.LENGTH_SHORT).show()
 
                 }
 
@@ -100,17 +104,18 @@ class CreateAccountActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("LongLogTag")
     private fun verifyEmail() {
-        val mUser = mAuth?.currentUser;
+        val mUser = mAuth?.currentUser
         mUser?.sendEmailVerification()?.addOnCompleteListener(this){
-            task ->
+                task ->
 
             if(task.isSuccessful){
-                Toast.makeText(this@CreateAccountActivity, "Email de verificação enviado para " + mUser.email,
+                Toast.makeText(this@TeacherCreateAccountActivity, "Email de verificação enviado para " + mUser.email,
                     Toast.LENGTH_SHORT).show()
             } else {
                 Log.e(TAG, "Email de Verificação com Erro de Envio", task.exception)
-                Toast.makeText(this@CreateAccountActivity, "Erro ao enviar o email de verificação.",
+                Toast.makeText(this@TeacherCreateAccountActivity, "Erro ao enviar o email de verificação.",
                     Toast.LENGTH_SHORT).show()
             }
 
@@ -118,7 +123,7 @@ class CreateAccountActivity : AppCompatActivity() {
     }
 
     private fun updateUserInfoandUi(){
-        val intent = Intent(this@CreateAccountActivity, LoginActivity::class.java)
+        val intent = Intent(this@TeacherCreateAccountActivity, LoginActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
